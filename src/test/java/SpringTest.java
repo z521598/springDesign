@@ -30,6 +30,8 @@ public class SpringTest {
     public void testAutowire() throws Exception {
         ServiceImpl service = (ServiceImpl) applicationContext.getBean("serviceImpl");
         Assert.assertNotNull(service.getDao());
-
+        System.out.println("applicationName:" + applicationContext.getApplicationName());
     }
+
+
 }
