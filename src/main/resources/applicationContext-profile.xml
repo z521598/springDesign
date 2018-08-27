@@ -14,11 +14,24 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-
+    <!--<context:property-placeholder location="application-online.properties"></context:property-placeholder>-->
+    <!-- default代表默认生效的 -->
     <context:component-scan base-package="com.github.service"/>
 
     <bean id="simpleBean" class="com.github.bean.SimpleBean">
         <property name="id" value="1"/>
         <property name="name" value="lsq"/>
     </bean>
+
+    <beans profile="online">
+        <bean id="simpleBean2" class="com.github.bean.SimpleBean">
+            <property name="id" value="2"/>
+            <property name="name" value="lsq2"/>
+        </bean>
+        <bean id="simpleBean" class="com.github.bean.SimpleBean">
+            <property name="id" value="3"/>
+            <property name="name" value="lsq3"/>
+        </bean>
+    </beans>
+
 </beans>

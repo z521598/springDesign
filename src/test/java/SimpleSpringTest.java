@@ -1,15 +1,11 @@
-import com.github.SimpleBean;
+import com.github.bean.SimpleBean;
 import com.github.service.ServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.internal.runners.JUnit38ClassRunner;
-import org.junit.internal.runners.JUnit4ClassRunner;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.springframework.beans.MutablePropertyValues;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.support.*;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
@@ -59,7 +55,7 @@ public class SimpleSpringTest {
     @Test
     public void testDefaultListableBeanFactory() throws Exception {
         GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
-        beanDefinition.setBeanClassName("com.github.SimpleBean");
+        beanDefinition.setBeanClassName("com.github.bean.SimpleBean");
         beanDefinition.setScope(GenericBeanDefinition.SCOPE_SINGLETON);
         MutablePropertyValues mutablePropertyValues = new MutablePropertyValues();
         mutablePropertyValues.addPropertyValue("id", 2L);
@@ -92,11 +88,5 @@ public class SimpleSpringTest {
         ServiceImpl service = (ServiceImpl) defaultListableBeanFactory.getBean(serviceBeanName);
         Assert.assertNotNull(service.getDao());
 
-    }
-
-    @Test
-    public void testXmlBeanFactory() throws Exception {
-        XmlBeanFactory xmlBeanFactory = new XmlBeanFactory(new ClassPathResource("applicationContext.xml"));
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext();
     }
 }

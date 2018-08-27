@@ -1,4 +1,4 @@
-package com.github;
+package com.github.bean;
 
 public class SimpleBean {
     private Long id;
